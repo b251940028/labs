@@ -1,0 +1,21 @@
+package lab8;
+public class Computer {
+    private Processor processor;
+    private Memory memory;
+    private DisplayCard displayCard;
+    private SoundCard soundCard;
+    public Computer() {
+        processor = new Processor("Intel Core i5", 6, 2.9, 12);
+        memory = new Memory(16, "DDR4", 3200, "Silicon Power");
+        displayCard = new DisplayCard(8, "NVIDIA RTX 2060", "ASUS", 1600);
+        soundCard = new SoundCard(7, 192, "Creative", "PCIe");
+    }
+    public void showInfo() {
+        System.out.println("PC Uzuulelt");
+        processor.printInfo();
+        memory.printInfo();
+        displayCard.printInfo();
+        soundCard.printInfo();
+        System.out.println("");
+    }
+}
