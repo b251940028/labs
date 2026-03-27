@@ -1,0 +1,77 @@
+package lab6;
+public class matrix {
+    private int[][] operand1;
+    private int[][] operand2;
+    private String operator;
+    public matrix(int[][] operand1, int[][] operand2, String operator) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+        this.operator = operator;
+    }
+    private int[][] addition(int[][] o1, int[][] o2) {
+        int rows = o1.length;
+        int cols = o1[0].length;
+        int[][] result = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = o1[i][j] + o2[i][j];
+            }
+        }
+        return result;
+    }
+
+    private int[][] subtraction(int[][] o1, int[][] o2) {
+        int rows = o1.length;
+        int cols = o1[0].length;
+        int[][] result = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = o1[i][j] - o2[i][j];
+            }
+        }
+        return result;
+    }
+    private int[][] multiplication(int[][] o1, int[][] o2) {
+        int r1 = o1.length;
+        int c1 = o1[0].length;
+        int c2 = o2[0].length;
+        int[][] result = new int[r1][c2];
+
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    result[i][j] += o1[i][k] * o2[k][j];
+                }
+            }
+        }
+        return result;
+    }
+    public int[][] chooseoperation() {
+        int[][] result = null;
+        switch (operator) {
+            case "+":
+                result = addition(operand1, operand2);
+                break;
+            case "-":
+                result = subtraction(operand1, operand2);
+                break;
+            case "*":
+                result = multiplication(operand1, operand2);
+                break;
+            default:
+                System.out.println("Буруу оператор!");
+                return null;
+        }
+        printmatrix(result);
+        return result;
+    }
+    private void printmatrix(int[][] pmatrix) {
+        System.out.println("Үр дүнгийн матриц:");
+        for (int i = 0; i < pmatrix.length; i++) {
+            for (int j = 0; j < pmatrix[i].length; j++) {
+                System.out.print(pmatrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
