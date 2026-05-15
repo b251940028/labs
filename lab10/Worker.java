@@ -16,6 +16,6 @@ public class Worker extends Person {
 	     System.out.println("Ажилтны код: " + workerCode);
 	     System.out.println("Салбарын нэр: " + departmentName);
 	     System.out.println("Ажилд орсон огноо: " + getYear(hireDate) + " оны " + getMonth(hireDate) + " сарын " + getDay(hireDate) + "-ны өдөр");
-	     System.out.println("----------------------------\n");
+	     System.out.println("\n");
 	 }
 	}
